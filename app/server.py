@@ -14,7 +14,7 @@ export_file_url = 'https://www.dropbox.com/s/ky36nbjjjphfzor/export.pk1?dl=1' # 
 export_file_name = 'export.pkl'
 
 #classes = ['black', 'grizzly', 'teddys']
-#classes = ['soccer-player', 'football-player']
+classes = ['soccer-player', 'football-player']
 path = Path(__file__).parent
 
 app = Starlette()
