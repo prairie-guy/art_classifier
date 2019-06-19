@@ -63,7 +63,7 @@ def get_prediction(im):
     cls = ['Football','Soccer']
     _,n,freq = learn.predict(im)
     freq = to_percent(freq[n])
-    return f"{cls[n]} Player:{freq}%"
+    return f"{cls[n]} Player: {freq}%"
 
 @app.route('/analyze', methods=['POST'])
 async def analyze(request):
