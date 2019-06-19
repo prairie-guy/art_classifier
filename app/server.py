@@ -56,15 +56,24 @@ async def homepage(request):
     html_file = path / 'view' / 'index.html'
     return HTMLResponse(html_file.open().read())
 
+def to_percent(freq:tensor)->float:
+    return round(float(f"{freq*100}"),2)
+
+def get_prediction(learn,im):
+    cls = ['Football','Soccer']
+    _,n,freq = learn.predict(im)
+    freq = to_percent(freq[n])
+    return f"{cls[n]} Player:{freq}%"
 
 @app.route('/analyze', methods=['POST'])
 async def analyze(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
-    prediction = learn.predict(img)[0]
-    return JSONResponse({'result': str(prediction)})
-
+    prediction = get_prediction(learn,img)
+    return JSONResponse({str(prediction)})
+    #prediction = learn.predict(img)[0]
+    #return JSONResponse({'result': str(prediction)})
 
 if __name__ == '__main__':
     if 'serve' in sys.argv:
