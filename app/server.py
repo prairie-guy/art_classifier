@@ -59,7 +59,7 @@ async def homepage(request):
 def to_percent(freq:tensor)->float:
     return round(float(f"{freq*100}"),2)
 
-def get_prediction(learn,im):
+def get_prediction(im):
     cls = ['Football','Soccer']
     _,n,freq = learn.predict(im)
     freq = to_percent(freq[n])
@@ -70,8 +70,8 @@ async def analyze(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
-    prediction = get_prediction(learn,img)
-    return JSONResponse({str(prediction)})
+    prediction = get_prediction(img)
+    return JSONResponse({prediction})
     #prediction = learn.predict(img)[0]
     #return JSONResponse({'result': str(prediction)})
 
