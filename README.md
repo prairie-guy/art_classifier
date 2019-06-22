@@ -31,10 +31,12 @@ dropbox_uploader.sh upload export.pkl export_something.pk1
 - Paste link from Dropbox/Share to this site to generate a download link:
 https://syncwithtech.blogspot.com/p/direct-download-link-generator.html
 
-- Add New Repository in Github/Respositories/New/Import_Repository
+- Add new repository in Github/Respositories/New/Import_Repository
 
-- git clone http:gitbub.com/prairie-guy/new_repository
+- git clone http:gitbub.com/prairie-guy/new_repo
 
 - Edit new_repository/app/server.py to include Dropbox download link, classes and other customizations.
 
-- 
+- Add a new app on http://Render.com as a WebService, link it to new github repo.
+
+- Set up as Docker
