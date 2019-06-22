@@ -9,16 +9,20 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
+
+################################################################################################
+# BASIC CONFIGURATION
 # soccer_or_football: version1
 # export_file_name = 'export.pkl'
 # export_file_url = 'https://www.dropbox.com/s/ky36nbjjjphfzor/export.pk1?dl=1'
+# classes = ['soccer-player', 'football-player']#
+#
+# art_classifier: version 1
+export_file_url = 'https://www.dropbox.com/s/xs75arbjjuro0qt/export_art_1.pk1?dl=1'
+export_file_name = 'export_art_1.pkl'
+classes = ['Baroque','Realism','Impressionism', 'Post-Impressionism','Cubism','Surrealism','Abstract-Expressionism','Pop-Art','Photorealism', 'Lowbrow']
+################################################################################################
 
-# soccer_or_football: version 2
-export_file_url = 'https://www.dropbox.com/s/66uqd6srwuhyceq/export2.pk1?dl=1'
-export_file_name = 'export2.pkl'
-
-#classes = ['black', 'grizzly', 'teddys']
-classes = ['soccer-player', 'football-player']
 path = Path(__file__).parent
 
 app = Starlette()
@@ -60,14 +64,16 @@ async def homepage(request):
     html_file = path / 'view' / 'index.html'
     return HTMLResponse(html_file.open().read())
 
+################################################################
 def to_percent(freq:tensor)->float:
     return round(float(f"{freq*100}"),2)
 
 def get_prediction(im):
-    cls = ['Football','Soccer']
+    cls = classes  # define above
     _,n,freq = learn.predict(im)
     freq = to_percent(freq[n])
-    return f"{cls[n]} Player: {freq}%"
+    return f"{cls[n]} : {freq}%"
+################################################################
 
 @app.route('/analyze', methods=['POST'])
 async def analyze(request):
