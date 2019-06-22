@@ -1,5 +1,5 @@
 # Soccer_or_football classifier 
-#3 [fast.ai](https://www.fast.ai) models on [Render](https://render.com)
+## [fast.ai](https://www.fast.ai) models on [Render](https://render.com)
 
 This repo can be used as a starting point to deploy [fast.ai](https://github.com/fastai/fastai) models on Render.
 
