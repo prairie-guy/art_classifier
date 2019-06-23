@@ -17,10 +17,10 @@ from starlette.staticfiles import StaticFiles
 # export_file_url = 'https://www.dropbox.com/s/ky36nbjjjphfzor/export.pk1?dl=1'
 # classes = ['soccer-player', 'football-player']#
 #
-# art_classifier: version 1
-export_file_url = 'https://www.dropbox.com/s/xs75arbjjuro0qt/export_art_1.pk1?dl=1'
-export_file_name = 'export_art_1.pkl'
-classes = ['Baroque','Realism','Impressionism', 'Post-Impressionism','Cubism','Surrealism','Abstract-Expressionism','Pop-Art','Photorealism', 'Lowbrow']
+# art_classifier: version 2
+export_file_url = 'https://www.dropbox.com/s/fky9bmpy37e02ij/export_art_2.pkl?dl=1'
+export_file_name = 'export_art_2.pkl'
+classes =  ['Middle-Ages', 'Renaissance', 'Neoclassical', 'Impressionism', 'Cubism', 'Surrealism' ,'Pop-Art', 'Lowbrow', 'Abstract', 'Photorealism']
 ################################################################################################
 
 path = Path(__file__).parent
